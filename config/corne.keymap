@@ -23,6 +23,21 @@
             bindings = <&kp ESCAPE>;
             key-positions = <0 1>;
         };
+
+        vol_up {
+            bindings = <&kp C_VOLUME_UP>;
+            key-positions = <11 23>;
+        };
+
+        vol_down {
+            bindings = <&kp C_VOLUME_DOWN>;
+            key-positions = <23 35>;
+        };
+
+        play_pause {
+            bindings = <&kp K_PLAY_PAUSE>;
+            key-positions = <11 23 35>;
+        };
     };
 
     keymap {
