@@ -49,6 +49,15 @@
         };
     };
 
+    behaviors {
+        arrow_func_tap: arrow_func_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ARROW_FUNC_TAP";
+            #binding-cells = <0>;
+            bindings = <&kp GREATER_THAN>, <&arrow_func>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -79,8 +88,8 @@
         symb_layer {
             bindings = <
 &trans  &kp EXCLAMATION  &kp QUESTION          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PLUS     &kp DOLLAR      &kp GRAVE         &kp PIPE           &kp LS(NON_US_HASH)  &kp CARET      &trans
-&trans  &kp LESS_THAN    &kp GREATER_THAN      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS    &kp EQUAL       &kp SINGLE_QUOTE  &kp NON_US_HASH    &kp ASTERISK         &kp AMPERSAND  &trans
-&trans  &arrow_func      &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH    &kp UNDERSCORE  &kp AT_SIGN       &kp DOUBLE_QUOTES  &kp PERCENT          &kp HASH       &trans
+&trans  &kp LESS_THAN    &arrow_func_tap       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS    &kp EQUAL       &kp SINGLE_QUOTE  &kp NON_US_HASH    &kp ASTERISK         &kp AMPERSAND  &trans
+&trans  &none            &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH    &kp UNDERSCORE  &kp AT_SIGN       &kp DOUBLE_QUOTES  &kp PERCENT          &kp HASH       &trans
                                                &trans                &trans                 &trans       &trans          &trans            &trans
             >;
         };
