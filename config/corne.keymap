@@ -71,7 +71,7 @@
 &kp LMETA  &kp Q  &kp W  &kp E      &kp R        &kp T        &kp Y      &kp U            &kp I            &kp O    &kp P     &kp DELETE
 &kp LCTRL  &kp A  &kp S  &kp D      &kp F        &kp G        &kp H      &kp J            &kp K            &kp L    &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z  &kp X  &kp C      &kp V        &kp B        &kp N      &kp M            &kp COMMA        &kp DOT  &kp FSLH  &kp RIGHT_ALT
-                         &kp LCTRL  &lt 1 SPACE  &lt 0 TAB    &lt 3 RET  &lt 2 BACKSPACE  &kp RIGHT_SHIFT
+                         &kp LCTRL  &lt 1 SPACE  &lt 4 TAB    &lt 3 RET  &lt 2 BACKSPACE  &kp RIGHT_SHIFT
             >;
         };
 
@@ -104,20 +104,13 @@
 
         kb_utils {
             bindings = <
-&bootloader  &none          &none         &none         &none         &none           &none   &none             &none           &none       &none  &none
-&none        &bt BT_DISC 0  &none         &none         &none         &none           &none   &kp K_PLAY_PAUSE  &kp K_PREVIOUS  &kp K_NEXT  &none  &none
-&bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none             &none           &none       &none  &none
-                                          &none         &none         &trans          &trans  &none             &none
+&bootloader  &none          &none         &none         &none         &none           &none  &none             &none           &none       &none  &studio_unlock
+&none        &bt BT_DISC 0  &none         &none         &none         &none           &none  &kp K_PLAY_PAUSE  &kp K_PREVIOUS  &kp K_NEXT  &none  &none
+&bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none             &none           &none       &none  &none
+                                          &none         &none         &none           &none  &none             &none
             >;
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        tri_layer {
-            if-layers = <3 4>;
-            then-layer = <4>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
