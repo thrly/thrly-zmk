@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+
 // #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #include <behaviors.dtsi>
@@ -24,7 +24,7 @@
 
         esc {
             bindings = <&kp ESCAPE>;
-            key-positions = <0 1>;
+            key-positions = <1 2>;
         };
 
         vol_up {
@@ -39,7 +39,7 @@
 
         play_pause {
             bindings = <&kp K_PLAY_PAUSE>;
-            key-positions = <11 23 35>;
+            key-positions = <11 10>;
         };
     };
 
@@ -76,7 +76,7 @@
 &kp LMETA  &kp Q  &kp W  &kp E      &kp R        &kp T        &kp Y      &kp U            &kp I            &kp O    &kp P     &kp DELETE
 &kp LCTRL  &kp A  &kp S  &kp D      &kp F        &kp G        &kp H      &kp J            &kp K            &kp L    &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z  &kp X  &kp C      &kp V        &kp B        &kp N      &kp M            &kp COMMA        &kp DOT  &kp FSLH  &kp RIGHT_ALT
-                         &kp LCTRL  &lt 1 SPACE  &lt 4 TAB    &lt 3 RET  &lt 2 BACKSPACE  &kp RIGHT_SHIFT
+                         &kp LCTRL  &lt 1 SPACE  &lt 0 TAB    &lt 3 RET  &lt 2 BACKSPACE  &kp RIGHT_SHIFT
             >;
         };
 
@@ -91,37 +91,28 @@
 
         symb_layer {
             bindings = <
-&trans  &kp EXCLAMATION  &kp QUESTION          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PLUS     &kp DOLLAR      &kp GRAVE         &kp LS(NUBS)       &kp LS(NON_US_HASH)  &kp CARET      &trans
-&trans  &kp LESS_THAN    &arrow_func_tap       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS    &kp EQUAL       &kp SINGLE_QUOTE  &kp NON_US_HASH    &kp ASTERISK         &kp AMPERSAND  &trans
-&trans  &none            &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH    &kp UNDERSCORE  &kp AT_SIGN       &kp DOUBLE_QUOTES  &kp PERCENT          &kp HASH       &trans
-                                               &trans                &trans                 &trans       &trans          &trans            &trans
+&trans  &kp EXCLAMATION       &kp QUESTION     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PLUS        &kp DOLLAR      &kp GRAVE         &kp LS(PERCENT)           &kp LS(NUMBER_3)   &kp CARET            &trans
+&trans  &kp LESS_THAN         &arrow_func_tap  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp MINUS       &kp EQUAL       &kp SINGLE_QUOTE  &kp AMPERSAND             &kp DOUBLE_QUOTES  &kp LS(SEMICOLON)    &trans
+&trans  &kp NON_US_BACKSLASH  &kp SLASH        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp ASTERISK    &kp UNDERSCORE  &kp AT_SIGN       &kp LS(NON_US_BACKSLASH)  &kp NON_US_HASH    &kp LS(NON_US_HASH)  &trans
+                                               &trans                &trans                 &trans          &trans          &trans            &trans
             >;
         };
 
         num_layer {
             bindings = <
-&kp ESC         &kp F1      &kp F2      &kp F3      &kp F4      &kp F5        &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-&kp LCTRL       &kp N1      &kp N2      &kp N3      &kp N4      &kp N5        &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kt RCTRL
-&kp LEFT_SHIFT  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)    &kp LS(N6)  &kt LS(N7)  &kt LS(N8)  &kt LS(N9)  &kt LS(N0)  &kt RSHFT
-                                        &trans      &trans      &trans        &trans      &trans      &trans
-            >;
-        };
-
-        layer_4 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&kp ESC  &kp F1      &kp F2      &kp F3      &kp F4      &kp F5        &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
+&trans   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5        &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &trans
+&trans   &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)    &kp LS(N6)  &kt LS(N7)  &kt LS(N8)  &kt LS(N9)  &kt LS(N0)  &trans
+                                 &trans      &trans      &trans        &trans      &trans      &trans
             >;
         };
 
         kb_utils {
             bindings = <
-&bootloader  &none          &none         &none         &none         &none           &none   &none  &none  &none  &none  &none
-&none        &bt BT_DISC 0  &none         &none         &none         &none           &none   &none  &none  &none  &none  &none
-&bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none  &none  &none  &none  &none
-                                          &none         &none         &trans          &trans  &none  &none
+&bootloader  &none          &none         &none         &none         &none           &none   &none             &none           &none       &none  &none
+&none        &bt BT_DISC 0  &none         &none         &none         &none           &none   &kp K_PLAY_PAUSE  &kp K_PREVIOUS  &kp K_NEXT  &none  &none
+&bt BT_CLR   &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none   &none             &none           &none       &none  &none
+                                          &none         &none         &trans          &trans  &none             &none
             >;
         };
     };
@@ -131,7 +122,7 @@
 
         tri_layer {
             if-layers = <3 4>;
-            then-layer = <5>;
+            then-layer = <4>;
         };
     };
 };
