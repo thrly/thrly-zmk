@@ -7,14 +7,18 @@ manifest:
     # for gem view:
     - name: m165437
       url-base: https://github.com/M165437
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    # for gem view
     - name: nice-view-gem
       remote: m165437
+      revision: main
+    - name: zmk-helpers
+      remote: urob
       revision: main
   self:
     path: config
