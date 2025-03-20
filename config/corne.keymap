@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: MIT
  */
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 800  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // Left-hand keys.
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // Right-hand keys.
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2         
 
-// #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -64,6 +64,19 @@
         };
     };
 
+    &sk {
+      release-after-ms = <1000>;
+      quick-release;
+      lazy;
+      ignore-modifiers;
+    };
+
+    &mmv {
+          acceleration-exponent = <1>;          // 1
+          time-to-max-speed-ms = <500>;         // 300
+          delay-ms = <0>;                       // 0
+    };
+
     behaviors {
 
         
@@ -93,7 +106,7 @@
             label = "STICKY";
             bindings = <&kp>;
             #binding-cells = <1>;
-            release-after-ms = <2000>;
+            release-after-ms = <1000>;
             quick-release;
             lazy;
             ignore-modifiers;
@@ -114,7 +127,7 @@
 &kp LMETA  &kp Q      &kp W           &kp E             &kp R        &kp T        &kp Y      &kp U            &kp I                &kp O           &kp P         &kp DELETE
 &kp LCTRL  &A_GUI_mt  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LCTRL F  &kp G        &kp H      &mt RCTRL J      &mt RIGHT_SHIFT K    &mt LEFT_ALT L  &semi_MOD_mt  &kp SQT
 &sk LSHFT  &kp Z      &kp X           &kp C             &kp V        &kp B        &kp N      &kp M            &kp COMMA            &kp DOT         &kp FSLH      &kp RIGHT_ALT
-                                      &kp LCTRL         &lt 1 SPACE  &lt 4 TAB    &lt 3 RET  &lt 2 BACKSPACE  &sticky RIGHT_SHIFT
+                                      &kp LCTRL         &lt 1 SPACE  &lt 4 TAB    &lt 3 RET  &lt 2 BACKSPACE  &sk RIGHT_SHIFT
             >;
         };
 
