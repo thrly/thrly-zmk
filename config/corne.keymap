@@ -64,6 +64,7 @@
         };
     };
 
+/*
     &sk {
       release-after-ms = <1000>;
       quick-release;
@@ -76,6 +77,7 @@
           time-to-max-speed-ms = <500>;         // 300
           delay-ms = <0>;                       // 0
     };
+*/
 
     behaviors {
 
