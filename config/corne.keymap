@@ -36,6 +36,16 @@
             bindings = <&kp C_VOLUME_DOWN>;
             key-positions = <23 35>;
         };
+
+        CAPS_LOCK {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <5 6>;
+        };
+
+        Delete {
+            bindings = <&kp DELETE>;
+            key-positions = <10 9>;
+        };
     };
 
     macros {
@@ -55,6 +65,31 @@
             #binding-cells = <0>;
             bindings = <&kp GREATER_THAN>, <&arrow_func>;
         };
+
+        A_GUI_mt: A_GUI_mt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "A_GUI_MT";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&mt LGUI A>;
+        };
+
+        semi_MOD_mt: semi_MOD_mt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SEMI_MOD_MT";
+            #binding-cells = <0>;
+            bindings = <&kp SEMICOLON>, <&mt RIGHT_GUI SEMICOLON>;
+        };
+
+        sticky: sticky {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            release-after-ms = <2000>;
+            quick-release;
+            lazy;
+            ignore-modifiers;
+        };
     };
 
     keymap {
@@ -68,10 +103,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp LMETA  &kp Q  &kp W  &kp E      &kp R        &kp T        &kp Y      &kp U            &kp I            &kp O    &kp P     &kp DELETE
-&kp LCTRL  &kp A  &kp S  &kp D      &kp F        &kp G        &kp H      &kp J            &kp K            &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C      &kp V        &kp B        &kp N      &kp M            &kp COMMA        &kp DOT  &kp FSLH  &kp RIGHT_ALT
-                         &kp LCTRL  &lt 1 SPACE  &lt 4 TAB    &lt 3 RET  &lt 2 BACKSPACE  &kp RIGHT_SHIFT
+&kp LMETA  &kp Q      &kp W           &kp E             &kp R        &kp T        &kp Y      &kp U            &kp I                &kp O           &kp P         &kp DELETE
+&kp LCTRL  &A_GUI_mt  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LCTRL F  &kp G        &kp H      &mt RCTRL J      &mt RIGHT_SHIFT K    &mt LEFT_ALT L  &semi_MOD_mt  &kp SQT
+&sk LSHFT  &kp Z      &kp X           &kp C             &kp V        &kp B        &kp N      &kp M            &kp COMMA            &kp DOT         &kp FSLH      &kp RIGHT_ALT
+                                      &kp LCTRL         &lt 1 SPACE  &lt 4 TAB    &lt 3 RET  &lt 2 BACKSPACE  &sticky RIGHT_SHIFT
             >;
         };
 
