@@ -4,7 +4,7 @@
 
 For more explanations and reflections on this customization, see [my blog post](https://thrly.com/blog/thoughts-on-customising-a-split-keyboard-layout/) on this keymap.
 
-![cat paws and keyboard closeup](img\cat-corne.jpg)
+![cat paws and keyboard closeup](./img/cat-corne.jpg)
 
 ## Key Features
 
@@ -27,19 +27,19 @@ Note that in the current keymap diagrams, the homerow mods (Gui-Alt-Shf-Ctl) are
 
 ### Base layer
 
-![Base keymap diagram](img\corne-base-layer.png)
+![Base keymap diagram](./img/corne-base-layer.png)
 
 ### Symbol layer
 
-![Symbol keymap diagram](img\corne-symbol-layer.png)
+![Symbol keymap diagram](./img/corne-symbol-layer.png)
 
 ### Nav layer
 
-![Nav keymap diagram](img\corne-nav-layer.png)
-
+![Nav keymap diagram](./img/corne-nav-layer.png)
+.
 ### Num layer
 
-![Num keymap diagram](img\corne-num-layer.png)
+![Num keymap diagram](./img/corne-num-layer.png)
 
 ## Dependencies
 
