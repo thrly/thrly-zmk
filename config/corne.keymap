@@ -18,6 +18,18 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <zmk-helpers/key-labels/42.h>
 
+&sk {
+  release-after-ms = <1000>;
+  quick-release;
+  lazy;
+  ignore-modifiers;
+};
+
+&mmv {
+      acceleration-exponent = <1>;          // 1
+      time-to-max-speed-ms = <500>;         // 300
+      delay-ms = <0>;                       // 0
+};
 
 / {
     combos {
@@ -64,20 +76,6 @@
         };
     };
 
-/*
-    &sk {
-      release-after-ms = <1000>;
-      quick-release;
-      lazy;
-      ignore-modifiers;
-    };
-
-    &mmv {
-          acceleration-exponent = <1>;          // 1
-          time-to-max-speed-ms = <500>;         // 300
-          delay-ms = <0>;                       // 0
-    };
-*/
 
     behaviors {
 
